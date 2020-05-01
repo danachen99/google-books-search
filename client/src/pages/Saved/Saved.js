@@ -5,8 +5,8 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import CardBody from "../../components/DataBody/DataBody";
 import Card from "../../components/Card/Card";
-import DeleteBtn from "../../components/DeleteBtn/DeleteBtn"
-import ViewButton from "../../components/ViewButton/ViewButton"
+import DeleteBtn from "../../components/DeleteBtn"
+import ViewButton from "../../components/ViewButton"
 
 function Search() {
   // Setting our component's initial state

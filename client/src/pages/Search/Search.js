@@ -3,8 +3,8 @@ import Jumbotron from "../../components/Jumbotron/";
 import API from "../../utils/API";
 import CardBody from "../../components/DataBody/DataBody";
 import Card from "../../components/Card/Card"
-import SaveButton from "../../components/SaveButton/SaveButton"
-import ViewButton from "../../components/ViewButton/ViewButton"
+import SaveButton from "../../components/SaveButton"
+import ViewButton from "../../components/ViewButton"
 import { Col, Row, Container } from "../../components/Grid/";
 import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
