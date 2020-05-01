@@ -3,10 +3,10 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import CardBody from "../../components/cardBody/cardBody";
-import Card from "../../components/Card/card";
-import DeleteBtn from "../../components/DeleteBtn/deleteBtn"
-import ViewBtn from "../../components/viewBtn/viewBtn"
+import CardBody from "../../components/DataBody/DataBody";
+import Card from "../../components/Card/Card";
+import DeleteBtn from "../../components/DeleteBtn/DeleteBtn"
+import ViewButton from "../../components/ViewButton/ViewButton"
 
 function Search() {
   // Setting our component's initial state
@@ -50,7 +50,7 @@ function Search() {
                           handleDeleteSubmit={handleDeleteSubmit}
                           id={book._id}
                         />
-                        <ViewBtn
+                        <ViewButton
                           link={book.link}
                         />
                         <CardBody

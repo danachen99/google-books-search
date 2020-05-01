@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Jumbotron from "../../components/Jumbotron/";
 import API from "../../utils/API";
-import CardBody from "../../components/cardBody/cardBody";
-import Card from "../../components/Card/card"
-import SaveBtn from "../../components/saveBtn/saveBtn"
-import ViewBtn from "../../components/viewBtn/viewBtn"
+import CardBody from "../../components/DataBody/DataBody";
+import Card from "../../components/Card/Card"
+import SaveButton from "../../components/SaveButton/SaveButton"
+import ViewButton from "../../components/ViewButton/ViewButton"
 import { Col, Row, Container } from "../../components/Grid/";
 import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form/form";
-
-import "../../pages/Search/styles.css"
+import { Input, FormBtn } from "../../components/Form";
 
 function Search() {
   // Setting our component's initial state
@@ -83,13 +81,13 @@ function Search() {
                 {books.map(book => (
                   <ListItem key={book.id}>
                       <Card>
-                      <SaveBtn
+                      <SaveButton
                           handleSaveSubmit={handleSaveSubmit}
                           bookData={book}
                         >
                           <i className="far fa-heart"></i>
-                        </SaveBtn>
-                        <ViewBtn
+                        </SaveButton>
+                        <ViewButton
                           link={book.link}
                         />
                         <CardBody
