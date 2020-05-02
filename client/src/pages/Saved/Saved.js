@@ -35,8 +35,7 @@ function Search() {
         <Row>
           <div className="hero">
             <Jumbotron>
-              <h1>React Google Books Search</h1>
-              <h5>Searched and Saved Books of Interest</h5>
+              <h1>Saved Books</h1>
             </Jumbotron>
           </div>
           <Col size="md-12">

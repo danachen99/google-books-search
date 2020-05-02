@@ -4,7 +4,7 @@ import Search from "./pages/Search/Search";
 import Saved from "./pages/Saved/Saved";
 // import NoMatch from "./pages/NoMatch/nomatch";
 import Nav from "./components/Nav";
-
+import "./App.css"
 function App() {
   return (
     <Router>
