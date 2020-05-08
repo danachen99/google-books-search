@@ -12,18 +12,25 @@ function Saved() {
   const [books, setBooks] = useState([])
 
   useEffect(() => {
+    loadBooks();
+  }, [])
+
+
+  function loadBooks() {
     API.getBooks()
-    .then(res => 
+      .then(res => 
         setBooks(res.data)
       )
       .catch(err => console.log(err));
-  }, [])
+  };
 
   function handleDeleteSubmit(id) {
     API.deleteBook(id)
-    setBooks(books.filter((book) => {
-        return book._id != id;
-    }))
+    .then(res => loadBooks())
+    .catch(err => console.log(err));
+    // setBooks(books.filter((book) => {
+    //     return book._id != id;
+    // }))
   }
 
     return (
