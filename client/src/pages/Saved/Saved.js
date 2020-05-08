@@ -8,11 +8,9 @@ import Card from "../../components/Card/Card";
 import DeleteBtn from "../../components/DeleteBtn"
 import ViewButton from "../../components/ViewButton"
 
-function Search() {
-  // Setting our component's initial state
+function Saved() {
   const [books, setBooks] = useState([])
 
-  // Load all books from database
   useEffect(() => {
     API.getBooks()
     .then(res => 
@@ -21,10 +19,8 @@ function Search() {
       .catch(err => console.log(err));
   }, [])
 
-  // Deletes a book from the database with a given id, then reloads books from the db
   function handleDeleteSubmit(id) {
     API.deleteBook(id)
-    // Filter to return true - if the current book id doesn't include the id that we're deleting, we're going to keep it)
     setBooks(books.filter((book) => {
         return book._id != id;
     }))
@@ -33,10 +29,8 @@ function Search() {
     return (
       <Container fluid>
         <Row>
-          <div className="hero">
-            <Jumbotron>
+          <div>
               <h1>Saved Books</h1>
-            </Jumbotron>
           </div>
           <Col size="md-12">
             <Card>
@@ -73,5 +67,4 @@ function Search() {
     );
   }
 
-
-export default Search;
+export default Saved;

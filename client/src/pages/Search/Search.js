@@ -12,31 +12,26 @@ import { Input, FormBtn } from "../../components/Form";
 function Search() {
   // Setting our component's initial state
   const [books, setBooks] = useState([])
-  const [searchTerm, setSearchTerm] = useState("")
+  const [search, setSearch] = useState("")
 
-  // Loads all books and sets them to books
-  function loadBooks() {
-    API.getByTitle(searchTerm)
-      .then(res => {
-        setBooks(res)
-        }
-      )
-      .catch(err => console.log(err));
-  };
-
-  // Handles updating component state when the user types into the input field
+  // Updates component state when the user types into the input field
   function handleInputChange(event) {
     const { value } = event.target;
-    setSearchTerm( value.replace(/\s/g, '') );
+    setSearch( value.replace(/\s/g, '') );
   };
 
   // When the form is submitted, use the API.saveBook method to save the book data
   function handleSearchSubmit(event) {
     event.preventDefault();
-    if (searchTerm) {
-      loadBooks();
-    }
+    API.getByTitle(search)
+      .then(res => {
+        setBooks(res)
+        console.log(res)
+        }
+      )
+      .catch(err => console.log(err));
   };
+
   
   function handleSaveSubmit(bookData) {
     API.saveBook({
@@ -53,9 +48,8 @@ function Search() {
       <Container fluid>
         <Row>
           <div className="hero">
-            <Jumbotron>
-              <h1>Google Books Search</h1>
-            </Jumbotron>
+              <h1>Google Books</h1>
+              <h4>Search by title</h4>
           </div>
           <Col size="md-12">
             <form className="d-flex">
@@ -63,7 +57,7 @@ function Search() {
                 onChange={handleInputChange}
                 name="title"
                 style={{ textAlign: "center", backgroundColor: "rgb(232,240,254)" }}
-                placeholder='For example, "Shabanu, Daughter of the Wind"'
+                placeholder='For example, "The Giver"'
               />
               <FormBtn
                 style={{ textAlign: "center", backgroundColor: "rgb(232,240,254)" }}
@@ -76,7 +70,7 @@ function Search() {
           <Col size="md-12">
             <Card>
               <h4 className="text-center">Search Results</h4>
-              {books.length >0? (
+              {books.length ? (
               <List>
                 {books.map(book => (
                   <ListItem key={book.id}>

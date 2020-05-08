@@ -1,5 +1,7 @@
 import axios from "axios";
 require("dotenv").config();
+const apiKey = process.env.REACT_APP_API_KEY;
+
 
 export default {
     // Gets all books
@@ -21,7 +23,7 @@ export default {
     getByTitle: function(title) {
         return new Promise((resolve, reject) => {
             axios
-                .get("https://www.googleapis.com/books/v1/volumes?q=$" + title + "&key=" + process.env.API_KEY)
+                .get(`https://www.googleapis.com/books/v1/volumes?q=$"${title}&key=${apiKey}`)
                 .then(res => {
                     const bookResults = res.data.items;
                     const results = bookResults.map(book => {
